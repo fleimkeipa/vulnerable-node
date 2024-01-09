@@ -1,7 +1,7 @@
 var config_local = {
     // Customer module configs
     "db": {
-        "server": "postgres://postgres:postgres@127.0.0.1",
+        "server": "postgres://postgres:postgres@127.0.0.2",
         "server2": "postgres://postgres:postgres@127.0.0.1",
         "database": "vulnerablenode"
     }
