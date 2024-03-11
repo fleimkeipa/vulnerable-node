@@ -52,3 +52,21 @@ on:
         required: true
         default: 'default'
     secrets: inherit
+
+
+    concurrency:
+  group: ci-auto-deploy-manual-${{ inputs.server }}-1
+  cancel-in-progress: true
+
+jobs:                  
+  call_binary:
+    uses: ./.github/workflows/call_binary.yml
+    with:
+      ref: ${{ fromJson(inputs.services).backend-ref }}
+    secrets: inherit
+
+  call_frontend:
+    uses: ./.github/workflows/call_frontend.yml
+    with:
+      ref: ${{ fromJson(inputs.services).frontend-ref }}
+    secrets: inherit
